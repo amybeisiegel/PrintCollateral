@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteCond %{HTTP_REFERER} !:\/\/([^.]+\.|)andrews.edu
+	RewriteRule \.(eot|woff|svg|ttf)$ - [F]
+</IfModule>
+<IfModule mod_headers.c>
+	<FilesMatch "\.(eot|woff|svg|ttf)$">
+		Header append Cache-Control "must-revalidate"
+	</FilesMatch>
+</IfModule>
