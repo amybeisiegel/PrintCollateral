@@ -180,6 +180,8 @@ var drawStaticObjects1 = function(doc) {
   doc.setFillColor(0,29,78);
   doc.rect(8.5, 7, 2.5, .3, 'F');
 
+
+
   //divider bar(REMOVE LATER)
   doc.setDrawColor(0);
   doc.setFillColor(0,0,0);
