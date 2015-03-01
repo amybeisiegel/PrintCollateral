@@ -22,6 +22,7 @@ var imgquote = {
   font: 'AkkuratLight',
   fontStyle: 'normal',
   fontSize: '14',
+  splitWidth: 6,
 };
 
 var credit = {
@@ -36,6 +37,7 @@ var block = {
   font: 'AkkuratLight',
   fontStyle: 'normal',
   fontSize: '20',
+  splitWidth: 9.5,
 };
 
 var heading = {
@@ -50,6 +52,7 @@ var paragraph = {
   font: 'times',
   fontStyle: 'normal',
   fontSize: '9',
+  splitWidth: 5.75,
 };
 
 var paragraphblue = {
@@ -57,6 +60,7 @@ var paragraphblue = {
   font: 'times',
   fontStyle: 'normal',
   fontSize: '9',
+  splitWidth: 5.75,
 };
 
 var learnmore = {
@@ -99,6 +103,7 @@ var statsource = {
   font: 'AkkuratLight',
   fontStyle: 'normal',
   fontSize: '6',
+  splitWidth: 3.3,
 };
 
 var contactplace = {
@@ -128,7 +133,26 @@ var degrees = {
   font: 'AkkuratRegular',
   fontStyle: 'normal',
   fontSize: '10',
+  splitWidth: 2.8,
 };
+
+function getBase64Image(img) {
+
+    var canvas = document.createElement("canvas");
+
+    canvas.width = img.width;
+    canvas.height = img.height;
+    var ctx = canvas.getContext("2d");
+
+    ctx.drawImage(img, 0, 0);
+
+    var dataURL = canvas.toDataURL("image/jpeg");
+
+    return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+
+}
+
+
 
 var initializePdf = function() {
   var doc = new jsPDF('landscape', 'in', 'letter');
@@ -146,25 +170,24 @@ var outputPdf = function(doc, selector) {
 
 
 
-var drawText = function(doc, text, coordinates, styles, splitlength) {
+var drawText = function(doc, text, coordinates, styles) {
   doc.setTextColor(styles.textColor.r, styles.textColor.g, styles.textColor.b)
   doc.setFont(styles.font);
   doc.setFontStyle(styles.fontStyle);
   doc.setFontSize(styles.fontSize);
 
-  if(splitlength > 0) {
-    text.Split
+
+  if (styles.splitWidth) {
+    lines = doc.setFont(styles.font, styles.fontStyle)
+               .setFontSize(styles.fontSize)
+               .splitTextToSize(text, styles.splitWidth)
+
+    doc.text(coordinates.x, coordinates.y, lines);
   }
-  // setDrawColor(0, 0, 0, 0),
-  // setFillColor(0, 0, 0, 0),
-  // setTextColor(0, 0, 0),
-  // setFont: 'AkkuratRegular',
-  // setFontStyle: 'normal',
-  // setFontSize: '12',
-  //  2. reset/override according to all original documentation based on my new styles
+  else {
+    doc.text(coordinates.x, coordinates.y, text);
+  }
 
-
-  doc.text(coordinates.x, coordinates.y, text);
 };
 
 
@@ -257,16 +280,32 @@ var drawPage1 = function(doc) {
   drawText(doc, $('#web').val(), {x: 3.15, y: 7.4}, contactvalue);
 
   drawText(doc, 'DEGREES', {x: .55, y: 3.19}, degreestitle);
-  drawText(doc, $('#degrees1').val(), {x: .55, y: 3.5}, degrees);
-  drawText(doc, $('#degrees2').val(), {x: .55, y: 3.75}, degrees);
-  drawText(doc, $('#degrees3').val(), {x: .55, y: 4}, degrees);
-  drawText(doc, $('#degrees4').val(), {x: .55, y: 4.25}, degrees);
-  drawText(doc, $('#degrees5').val(), {x: .55, y: 4.5}, degrees);
-  drawText(doc, $('#degrees6').val(), {x: .55, y: 4.75}, degrees);
-  drawText(doc, $('#degrees7').val(), {x: .55, y: 5}, degrees);
-  // base64whatever($('someurl').val(), function (base64string) {
-  //   fdsfdsfsd
-  // };
+  drawText(doc, $('#degrees1').val(), {x: .55, y: 3.52}, degrees);
+  drawText(doc, $('#degrees2').val(), {x: .55, y: 3.81}, degrees);
+  drawText(doc, $('#degrees3').val(), {x: .55, y: 4.1}, degrees);
+  drawText(doc, $('#degrees4').val(), {x: .55, y: 4.39}, degrees);
+  drawText(doc, $('#degrees5').val(), {x: .55, y: 4.68}, degrees);
+  drawText(doc, $('#degrees6').val(), {x: .55, y: 4.97}, degrees);
+  drawText(doc, $('#degrees7').val(), {x: .55, y: 76}, degrees);
+
+
+
+
+//IMAGES BELOW(page1)
+  // var page1img = getBase64Image($('#page1image').val());
+  // if (page1img) {
+  //   doc.addImage(page1img, 'JPEG', 1, 1, 2, 2);
+  // }
+
+//  doc.addImage(staticpage1img, 'JPEG', 1, 1, 2, 2);
+
+// var page1img = getBase64Image("file:///Users/user/Desktop/Web%20Design%203/0Final/PrintCollateral/images/cover1.jpeg");
+// if (page1img) {
+//   doc.addImage(page1img, 'JPEG', 1, 1, 2, 2);
+// }
+// doc.addImage(page1img, 'JPEG', x, y, w, h);
+
+
 
 };
 
@@ -274,7 +313,7 @@ var drawPage2 = function(doc) {
   drawStaticObjects2(doc);
 
   //page 2
-  drawText(doc, $('#imagequote').val(), {x: .15, y: 6.2}, imgquote);
+  drawText(doc, $('#imagequote').val(), {x: .15, y: 6}, imgquote);
   drawText(doc, $('#credit2').val(), {x: 4, y: .5}, credit);
 
   //page 3
@@ -298,9 +337,9 @@ var drawPage2 = function(doc) {
   drawText(doc, $('#3paying').val(), {x: 9.77, y: 7.6}, job);
   drawText(doc, $('#3amount').val(), {x: 9.1, y: 7.95}, amount);
 
-  drawText(doc, $('#statsource').val(), {x: 9.1, y: 8.2}, statsource);
+  drawText(doc, $('#statsource').val(), {x: 9.1, y: 8.1}, statsource);
 
-  doc.
+
 };
 
 // (doc, text, coordinates, styles)
@@ -319,6 +358,10 @@ var savePdf = function() {
   drawPage2(doc);
   doc.save('brochure.pdf');
 };
+
+$( "#save" ).click(function() {
+  savePdf();
+});
 
 // Bind with jquery
 // all elements   .focusout(redraw);

@@ -150,6 +150,7 @@ textarea {
 
 .pdfwindow iframe{
   border: 3px solid #8a4c12;
+  margin-bottom: 50px;
 }
 
 
@@ -162,24 +163,44 @@ label[for="1amount"] input, label[for="2amount"] input, label[for="3amount"] inp
 }
 
 
-/*.button {
+#save {
   background-color: #8a4c12;
+  display: block;
   font-family: 'Lato', serif;
   color: #fa7f28;
-  height: 35px;
-  width: 60px;
+  height: 50px;
+  width: 95px;
   padding-top: 7px;
   border: none;
-}*/
+  font-size: 14px;
+}
 
-.next:hover {
+#save a {
+  color: #fa7f28;
+  height: 50px;
+  width: 95px;
+}
+
+
+#save:hover {
   background-color: #fa7f28;
   color: #8a4c12;
   border: solid 1px #8a4c12;
   border-top: solid 3px;
   border-left: solid 2px;
+  text-decoration: none;
 }
 
+#save a:hover {
+  color: #8a4c12;
+  height: 50px;
+  width: 95px;
+  text-decoration: none;
+}
+
+section.businesscard {
+  margin-bottom: 40px;
+}
 .navbar-header {
   padding-left: 4%;
 }

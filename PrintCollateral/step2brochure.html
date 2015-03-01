@@ -39,7 +39,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-4">
-        <section class="step2 businesscard col-md-6">
+        <section class="step2 brochure col-md-6">
           <h3>Page 1</h3>
           <form class="page1">
             <label for="programname">Program name
@@ -62,7 +62,7 @@
             <label for="credit2">Page image credit
               <input type="text" name="credit2" id="credit2" /></label>
             <label for="imagequote">Quote over image
-              <textarea name="imagequote" maxlength="335" id="imagequote" /></textarea></label>
+              <textarea name="imagequote" id="imagequote" /></textarea></label>
             <!--choose from browser - Page Image-->
 
 
@@ -71,11 +71,11 @@
           <h3>Page 3</h3>
           <form class="page3">
             <label for="blockquote">Block quote
-              <textarea name="blockquote" maxlength="378" id="blockquote" /></textarea></label>
+              <textarea name="blockquote" id="blockquote" /></textarea></label>
             <label for="careers">Info about careers
-              <textarea name="careers" maxlength="450" id="careers" /></textarea></label>
+              <textarea name="careers" id="careers" /></textarea></label>
             <label for="curriculum">Curriculum
-              <textarea name="curriculum" maxlength="252" id="curriculum" /></textarea></label>
+              <textarea name="curriculum" id="curriculum" /></textarea></label>
             <label for="link">Link to Learn More
               <input type="text" name="link" id="link" /></label>
 
@@ -95,7 +95,7 @@
               <input type="text" name="3amount" id="3amount" /></label>
 
             <label for="statsource">Source for salery statistics
-              <input type="text" name="statsource" maxlength="114" id="statsource" /></label>
+              <input type="text" name="statsource" id="statsource" /></label>
           </form>
 
           <h3>Page 4</h3>
@@ -105,11 +105,11 @@
               <input type="text" name="degrees" id="degrees" /></label>
             -->
             <label for="adinfo">Additional info
-              <textarea name="adinfo" maxlength="724" id="adinfo" /></textarea></label>
+              <textarea name="adinfo" id="adinfo" /></textarea></label>
             <label for="alumni">Alumni Highlight
-              <textarea name="alumni" maxlength="814" id="alumni" /></textarea></label>
+              <textarea name="alumni" id="alumni" /></textarea></label>
             <label for="extrathing">Extra Paragraph
-              <textarea name="extrathing" maxlength="316" id="extrathing" /></textarea></label>
+              <textarea name="extrathing" id="extrathing" /></textarea></label>
             <label for="phone">Phone Number
               <input type="text" name="phone" id="phone" /></label>
             <label for="fax">Fax
@@ -119,28 +119,29 @@
             <label for="web">Website
               <input type="text" name="web" id="web" /></label>
 
-            <label for="schoollogo">School Logo Image URL
-              <input type="text" name="schoollogo" id="schoollogo" /></label>
-
-
             <label for="degrees">Degrees offered
-              <input type="text" name="degrees" maxlength="41" id="degrees1" />
-              <input type="text" name="degrees" maxlength="41" id="degrees2" />
-              <input type="text" name="degrees" maxlength="41" id="degrees3" />
-              <input type="text" name="degrees" maxlength="41" id="degrees4" />
-              <input type="text" name="degrees" maxlength="41" id="degrees5" />
-              <input type="text" name="degrees" maxlength="41" id="degrees6" />
-
+              <input type="text" name="degrees" id="degrees1" />
+              <input type="text" name="degrees" id="degrees2" />
+              <input type="text" name="degrees" id="degrees3" />
+              <input type="text" name="degrees" id="degrees4" />
+              <input type="text" name="degrees" id="degrees5" />
+              <input type="text" name="degrees" id="degrees6" />
+              <input type="text" name="degrees" id="degrees7" /></label>
+              <button class="save">
+                <a href="#">Save Pdf</a>
+              </button>
           </form>
-          <button id="save">
-            <a>Save PDF</a>
+
+          <button>
+            <a href="#">Save Pdf</a>
           </button>
         </section>
       </div><!-- /first column -->
 
       <div class="col-md-8">
         <section class="pdfwindow">
-          <iframe class="preview-pane" width="90%" height="650" frameborder="0"></iframe>
+          <p>some text</p>
+          <iframe class="preview-pane" width="95%" height="650" frameborder="0"></iframe>
 
 
 
@@ -160,11 +161,6 @@
   <script src="js/jspdf.js"></script>
   <script src="js/BlobBuilder.js"></script>
   <script src="js/FileSaver.js"></script>
-  <script src="js/jspdf.plugin.split_text_to_size.js"></script>
-  <script src="js/jspdf.plugin.addimage.js"></script>
-  <script src="js/mocha.js"></script>
   <script src="js/pdfer.js"></script>
-
-
 </body>
 </html>
