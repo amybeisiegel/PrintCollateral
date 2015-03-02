@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF Generator - Business Card</title>
+  <link href='http://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,300italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/css.css">
+</head>
+
+<body>
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html"><img src="images/orangelogo.svg">range Juice</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="index.html">Press</a></li>
+          <li><a href="">About</a></li>
+          <li><a href="">Help</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4">
+        <section class="step2 businesscard col-md-6">
+          <h3>Front</h3>
+          <form class="page1">
+            <label for="companyname">Company Name
+              <input type="text" name="companyname" id="companyname" value="Block&amp;Co."/></label>
+              <label for="logoimage">Logo Image Url
+                <input type="text" name="logoimage" id="logoimage"/></label>
+            <label for="tagline">Tagline
+              <input type="text" name="tagline" id="tagline" value="Excellent service. Fair and square."/></label>
+
+            <label for="email">Email
+              <input type="text" name="email" id="email" value="block@blockandco.com"/></label>
+            <label for="phone">Phone Number
+              <input type="text" name="phone" id="phone" value="409-389-3823"/></label>
+            <label for="fax">Fax
+              <input type="text" name="fax" id="fax" value="409-389-3820"/></label>
+
+              <label for="address">Address
+                <textarea name="address" id="address"/>342 Example Dr. Berrien Springs, MI 49104</textarea></label>
+          </form>
+
+          <h3>Back</h3>
+          <form class="page2">
+            <label for="backimage">Background Image
+              <input type="text" name="backimage" id="backimage"/></label>
+            <label for="backtag">Tagline
+              <input type="text" name="backtag" id="backtag" value="Excellent service. Fair and square."/></label>
+          </form>
+
+          <button id="save">
+            <a>Save PDF</a>
+          </button>
+        </section>
+      </div><!-- /first column -->
+
+      <div class="col-md-8">
+        <section class="pdfwindow">
+          <iframe class="preview-pane" width="90%" height="650" frameborder="0"></iframe>
+
+
+
+
+
+        </section>
+      </div><!-- /second column -->
+    </div><!-- /.row-->
+  </div><!-- /.container-fluid -->
+
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+  <script src="js/jspdf.js"></script>
+  <script src="js/BlobBuilder.js"></script>
+  <script src="js/FileSaver.js"></script>
+  <script src="js/jspdf.plugin.split_text_to_size.js"></script>
+  <script src="js/jspdf.plugin.addimage.js"></script>
+  <script src="js/pdferbusiness.js"></script>
+
+
+</body>
+</html>
