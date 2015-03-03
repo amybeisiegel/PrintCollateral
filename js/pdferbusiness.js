@@ -235,7 +235,7 @@ var drawPage2 = function(doc) {
   doc.addPage();
   drawStaticObjects2(doc);
 
-  drawText(doc, $('#backtag').val(), {x: .811, y: 1}, backtag);
+  drawText(doc, $('#backtag').val(), {x: .77, y: 1}, backtag);
 
 };
 
